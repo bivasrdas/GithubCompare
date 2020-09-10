@@ -218,9 +218,10 @@ class GitCompare extends React.Component
         return(<div style={{backgroundColor:"#25212c"}}>
             <h1 style={{textAlign:"center",fontSize:"50px",color:"#d1cdcd"}}> Git  -comp</h1>
             <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
-            <input type="text" id="userid" style={{height:"40px",borderRadius:"10px",width:"300px",padding:"0px",fontSize:"30px"}}></input>
+            <input type="text" id="userid" placeholder="Enter Github ID:'Paul'" style={{height:"40px",borderRadius:"10px",width:"300px",padding:"0px",fontSize:"30px"}}></input>
             <br></br>
-        <button onClick={this.getUserDetails} style={{height:"40px",borderRadius:"10px",borderWidth:"0px",borderColor:"transparent",margin:"0px",width:"100px",textAlign:"center",marginLeft:"10px"}}>COMPARE</button></div>
+        <button onClick={this.getUserDetails} style={{height:"40px",borderRadius:"10px",borderWidth:"0px",borderColor:"transparent",margin:"0px",width:"100px",textAlign:"center",marginLeft:"10px"}}>COMPARE</button>
+        </div>
         <br></br>
         <div id="button" style={{display:"none"}}>
         <div style={{display:"flex",alignItems:"center",justifyContent:"center",fontSize:"20px"}}>
