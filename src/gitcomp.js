@@ -37,8 +37,6 @@ class GitCompare extends React.Component
              temp.push(res.data)
              this.setState({user:temp}) 
              console.log(this.state.user);
-
-             //console.log("yes",this.state.td.averagedaysdelay);
             })
             .catch(error=>
                 {
