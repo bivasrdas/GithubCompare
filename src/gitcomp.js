@@ -25,18 +25,14 @@ class GitCompare extends React.Component
     getUserDetails()
     {
         var x=document.getElementById("userid").value;
-        console.log(x);
         document.getElementById("userid").value="";
         var id='https://api.github.com/users/'+x;
-        console.log(id);
         axios.get(id)
         .then(res =>
             {
             var temp=this.state.user;
-             console.log(res);  
              temp.push(res.data)
              this.setState({user:temp}) 
-             console.log(this.state.user);
             })
             .catch(error=>
                 {
@@ -83,8 +79,6 @@ class GitCompare extends React.Component
             this.setState({sorter:1})
         }
         this.setState({user:x});
-        console.log("sorted");
-        console.log(this.state.user)
         this.state.user.sort();
         this.forceUpdate();
     
@@ -127,8 +121,6 @@ class GitCompare extends React.Component
         this.setState({sorter:1})
     }
         this.setState({user:x});
-        console.log("sorted");
-        console.log(this.state.user)
         this.forceUpdate();
     
 
@@ -167,8 +159,6 @@ class GitCompare extends React.Component
         }    this.setState({sorter:1})
     }
         this.setState({user:x});
-        console.log("sorted");
-        console.log(this.state.user)
         this.forceUpdate();
     
 
@@ -207,8 +197,6 @@ class GitCompare extends React.Component
         }    this.setState({sorter:1})
     }
         this.setState({user:x});
-        console.log("sorted");
-        console.log(this.state.user)
         this.forceUpdate();
     
 
@@ -235,7 +223,7 @@ class GitCompare extends React.Component
     <span style={{width:"50%",float:"left"}}>{this.state.user.map((each)=>
     <div style={{marginLeft:"15px"}}>
     <div className="site-card-border-less-wrapper" style={{width:"97%"}}>
-    <Card title={each.name}  style={{ width: "97%", backgroundColor:"rgb(120 141 160)",fontSize:"23px",textDecoration:"bold"}}>
+    <Card title={each.name} style={{ width: "97%", backgroundColor:"rgb(120 141 160)",fontSize:"23px",textDecoration:"bold"}}>
     <Card.Grid style={gridStyle} >Followers:{each.followers}</Card.Grid>
     <Card.Grid style={gridStyle} >Following:{each.following}</Card.Grid>
     <Card.Grid style={gridStyle} >Repo : {each.public_repos}</Card.Grid>
