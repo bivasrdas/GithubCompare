@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import { Card } from 'antd';
-import useForceUpdate from 'use-force-update';
 import Statistic from './Highcharts'
 import 'antd/dist/antd.css';
 const gridStyle = {
