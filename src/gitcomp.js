@@ -4,8 +4,9 @@ import { Card } from 'antd';
 import Statistic from './Highcharts'
 import 'antd/dist/antd.css';
 const gridStyle = {
-    width: '25%',
     textAlign: 'center',
+    fontSize:"20px",
+    width:149
   };
   
 
@@ -47,7 +48,7 @@ class GitCompare extends React.Component
     sortFollower()
     {
         var x=this.state.user;
-        if(this.state.sorter==1)
+        if(this.state.sorter===1)
         {
         for(var i=0;i<x.length;i++)
         {
@@ -65,21 +66,21 @@ class GitCompare extends React.Component
     }
         else
         {
-            for(var i=0;i<x.length;i++)
+            for(var k=0;k<x.length;k++)
             {
-                for(var j=0;j<x.length;j++)
+                for(var l=0;l<x.length;l++)
                 {
-                    if(x[i].followers<x[j].followers)
+                    if(x[k].followers<x[l].followers)
                     {
-                        var y=x[i];
-                        x[i]=x[j];
-                        x[j]=y;
+                        var z=x[k];
+                        x[k]=x[l];
+                        x[l]=z;
                     }
                 }
             }
             this.setState({sorter:1})
         }
-        this.state.user=x;
+        this.setState({user:x});
         console.log("sorted");
         console.log(this.state.user)
         this.state.user.sort();
@@ -91,7 +92,7 @@ class GitCompare extends React.Component
     {
      
         var x=this.state.user;
-        if(this.state.sorter==1)
+        if(this.state.sorter===1)
         {
         for(var i=0;i<x.length;i++)
         {
@@ -109,21 +110,21 @@ class GitCompare extends React.Component
     }
     else
     {
-        for(var i=0;i<x.length;i++)
+        for(var k=0;k<x.length;k++)
         {
-            for(var j=0;j<x.length;j++)
+            for(var l=0;l<x.length;l++)
             {
-                if(x[i].following<x[j].following)
+                if(x[k].following<x[l].following)
                 {
-                    var y=x[i];
-                    x[i]=x[j];
-                    x[j]=y;
+                    var z=x[k];
+                    x[k]=x[l];
+                    x[l]=z;
                 }
             }
         }
         this.setState({sorter:1})
     }
-        this.state.user=x;
+        this.setState({user:x});
         console.log("sorted");
         console.log(this.state.user)
         this.forceUpdate();
@@ -133,7 +134,7 @@ class GitCompare extends React.Component
     sortRepo()
     {
         var x=this.state.user;
-        if(this.state.sorter==1)
+        if(this.state.sorter===1)
         {
         for(var i=0;i<x.length;i++)
         {
@@ -150,20 +151,20 @@ class GitCompare extends React.Component
     }
     else
     {
-        for(var i=0;i<x.length;i++)
+        for(var k=0;k<x.length;k++)
         {
-            for(var j=0;j<x.length;j++)
+            for(var l=0;l<x.length;l++)
             {
-                if(x[i].public_repos<x[j].public_repos)
+                if(x[k].public_repos<x[l].public_repos)
                 {
-                    var y=x[i];
-                    x[i]=x[j];
-                    x[j]=y;
+                    var z=x[k];
+                    x[k]=x[l];
+                    x[l]=z;
                 }
             }
         }    this.setState({sorter:1})
     }
-        this.state.user=x;
+        this.setState({user:x});
         console.log("sorted");
         console.log(this.state.user)
         this.forceUpdate();
@@ -173,7 +174,7 @@ class GitCompare extends React.Component
     sortGist()
     {
         var x=this.state.user;
-        if(this.state.sorter==1)
+        if(this.state.sorter===1)
         {
         for(var i=0;i<x.length;i++)
         {
@@ -190,20 +191,20 @@ class GitCompare extends React.Component
     }
     else
     {
-        for(var i=0;i<x.length;i++)
+        for(var k=0;k<x.length;k++)
         {
-            for(var j=0;j<x.length;j++)
+            for(var l=0;l<x.length;l++)
             {
-                if(x[i].public_gists<x[j].public_gists)
+                if(x[k].public_gists<x[l].public_gists)
                 {
-                    var y=x[i];
-                    x[i]=x[j];
-                    x[j]=y;
+                    var z=x[k];
+                    x[k]=x[l];
+                    x[l]=z;
                 }
             }
         }    this.setState({sorter:1})
     }
-        this.state.user=x;
+        this.setState({user:x});
         console.log("sorted");
         console.log(this.state.user)
         this.forceUpdate();
@@ -231,10 +232,10 @@ class GitCompare extends React.Component
     <div style={{marginLeft:"15px"}}>
     <div className="site-card-border-less-wrapper" style={{width:400}}>
     <Card title={each.name}  style={{ width: 600, backgroundColor:"rgb(120 141 160)",fontSize:"23px",textDecoration:"bold"}}>
-    <Card.Grid style={gridStyle,{fontSize:"20px",width:150}}>Followers:{each.followers}</Card.Grid>
-    <Card.Grid style={gridStyle,{fontSize:"20px",width:150}}>Following:{each.following}</Card.Grid>
-    <Card.Grid style={gridStyle,{fontSize:"20px",width:149}}>Repo : {each.public_repos}</Card.Grid>
-    <Card.Grid style={gridStyle,{fontSize:"20px",width:149}}>Gist : {each.public_gists}</Card.Grid>
+    <Card.Grid style={{fontSize:"20px",width:150}}>Followers:{each.followers}</Card.Grid>
+    <Card.Grid style={gridStyle} >Following:{each.following}</Card.Grid>
+    <Card.Grid style={gridStyle} >Repo : {each.public_repos}</Card.Grid>
+    <Card.Grid style={gridStyle} >Gist : {each.public_gists}</Card.Grid>
     </Card>
     <br></br>
   </div></div>)}</span>

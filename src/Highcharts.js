@@ -247,7 +247,4 @@ function Statistic(props) {
         <HighchartsReact highcharts={Highcharts} options={gist} /></div>
     </div>
         );}
-    
-             
-    
     export default Statistic;
