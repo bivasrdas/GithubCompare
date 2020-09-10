@@ -175,6 +175,7 @@ function getdata2(d)
 return opt;}
 function getdata3(d)
 {
+    
             var categories=[];
             var data=[];
             d.forEach(d=>

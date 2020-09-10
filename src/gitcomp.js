@@ -6,7 +6,7 @@ import 'antd/dist/antd.css';
 const gridStyle = {
     textAlign: 'center',
     fontSize:"20px",
-    width:149
+    width:"25%"
   };
   
 
@@ -43,6 +43,8 @@ class GitCompare extends React.Component
                     console.log(error);
                     alert("Enter valid UserId");
                 })
+
+               document.getElementById("button").style.display="block";
 
     }
     sortFollower()
@@ -220,6 +222,7 @@ class GitCompare extends React.Component
             <br></br>
         <button onClick={this.getUserDetails} style={{height:"40px",borderRadius:"10px",borderWidth:"0px",borderColor:"transparent",margin:"0px",width:"100px",textAlign:"center",marginLeft:"10px"}}>COMPARE</button></div>
         <br></br>
+        <div id="button" style={{display:"none"}}>
         <div style={{display:"flex",alignItems:"center",justifyContent:"center",fontSize:"20px"}}>
         <button onClick={this.sortFollower}style={{marginLeft:"10px",marginRight:"10px"}}>Arrange by Followers</button>        
         <button onClick={this.sortFollowing} style={{marginLeft:"10px",marginRight:"10px"}}>Arrange by Following</button>        
@@ -227,18 +230,18 @@ class GitCompare extends React.Component
         <button onClick={this.sortGist} style={{marginLeft:"10px",marginRight:"10px"}}>Arrange by Gist</button>        
         </div>
     <h1>{this.state.user.name}</h1>
-    <span style={{width:"50%",float:"right",color:"white"}}><Statistic data={this.state.user} /></span>
+    <span style={{width:"50%",float:"right",color:"white"}}><Statistic data={this.state.user}/></span>
     <span style={{width:"50%",float:"left"}}>{this.state.user.map((each)=>
     <div style={{marginLeft:"15px"}}>
-    <div className="site-card-border-less-wrapper" style={{width:400}}>
-    <Card title={each.name}  style={{ width: 600, backgroundColor:"rgb(120 141 160)",fontSize:"23px",textDecoration:"bold"}}>
-    <Card.Grid style={{fontSize:"20px",width:150}}>Followers:{each.followers}</Card.Grid>
+    <div className="site-card-border-less-wrapper" style={{width:"97%"}}>
+    <Card title={each.name}  style={{ width: "97%", backgroundColor:"rgb(120 141 160)",fontSize:"23px",textDecoration:"bold"}}>
+    <Card.Grid style={gridStyle} >Followers:{each.followers}</Card.Grid>
     <Card.Grid style={gridStyle} >Following:{each.following}</Card.Grid>
     <Card.Grid style={gridStyle} >Repo : {each.public_repos}</Card.Grid>
     <Card.Grid style={gridStyle} >Gist : {each.public_gists}</Card.Grid>
     </Card>
     <br></br>
-  </div></div>)}</span>
+  </div></div>)}</span></div>
     </div>);
     }
 }
