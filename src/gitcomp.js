@@ -216,7 +216,7 @@ class GitCompare extends React.Component
     render()
     {
         return(<div style={{backgroundColor:"#25212c"}}>
-            <h1 style={{textAlign:"center",fontSize:"50px",color:"#d1cdcd"}}> Git  -comp</h1>
+            <h1 style={{textAlign:"center",fontSize:"50px",color:"#d1cdcd"}}> GitHub Compare</h1>
             <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
             <input type="text" id="userid" placeholder="Enter Github ID:'Paul'" style={{height:"40px",borderRadius:"10px",width:"300px",padding:"0px",fontSize:"30px"}}></input>
             <br></br>
