@@ -15,7 +15,7 @@ class GitCompare extends React.Component
     constructor(props)
     {
         super(props)
-        this.state={user:[]};
+        this.state={user:[],sorter:1};
         this.getUserDetails=this.getUserDetails.bind(this);
         this.sortFollowing=this.sortFollowing.bind(this);
         this.sortRepo=this.sortRepo.bind(this);
@@ -50,6 +50,8 @@ class GitCompare extends React.Component
     sortFollower()
     {
         var x=this.state.user;
+        if(this.state.sorter==1)
+        {
         for(var i=0;i<x.length;i++)
         {
             for(var j=0;j<x.length;j++)
@@ -61,6 +63,24 @@ class GitCompare extends React.Component
                     x[j]=y;
                 }
             }
+        }
+        this.setState({sorter:0})
+    }
+        else
+        {
+            for(var i=0;i<x.length;i++)
+            {
+                for(var j=0;j<x.length;j++)
+                {
+                    if(x[i].followers<x[j].followers)
+                    {
+                        var y=x[i];
+                        x[i]=x[j];
+                        x[j]=y;
+                    }
+                }
+            }
+            this.setState({sorter:1})
         }
         this.state.user=x;
         console.log("sorted");
@@ -74,6 +94,8 @@ class GitCompare extends React.Component
     {
      
         var x=this.state.user;
+        if(this.state.sorter==1)
+        {
         for(var i=0;i<x.length;i++)
         {
             for(var j=0;j<x.length;j++)
@@ -86,6 +108,24 @@ class GitCompare extends React.Component
                 }
             }
         }
+        this.setState({sorter:0})
+    }
+    else
+    {
+        for(var i=0;i<x.length;i++)
+        {
+            for(var j=0;j<x.length;j++)
+            {
+                if(x[i].following<x[j].following)
+                {
+                    var y=x[i];
+                    x[i]=x[j];
+                    x[j]=y;
+                }
+            }
+        }
+        this.setState({sorter:1})
+    }
         this.state.user=x;
         console.log("sorted");
         console.log(this.state.user)
@@ -96,6 +136,8 @@ class GitCompare extends React.Component
     sortRepo()
     {
         var x=this.state.user;
+        if(this.state.sorter==1)
+        {
         for(var i=0;i<x.length;i++)
         {
             for(var j=0;j<x.length;j++)
@@ -107,7 +149,23 @@ class GitCompare extends React.Component
                     x[j]=y;
                 }
             }
-        }
+        }    this.setState({sorter:0})
+    }
+    else
+    {
+        for(var i=0;i<x.length;i++)
+        {
+            for(var j=0;j<x.length;j++)
+            {
+                if(x[i].public_repos<x[j].public_repos)
+                {
+                    var y=x[i];
+                    x[i]=x[j];
+                    x[j]=y;
+                }
+            }
+        }    this.setState({sorter:1})
+    }
         this.state.user=x;
         console.log("sorted");
         console.log(this.state.user)
@@ -118,6 +176,8 @@ class GitCompare extends React.Component
     sortGist()
     {
         var x=this.state.user;
+        if(this.state.sorter==1)
+        {
         for(var i=0;i<x.length;i++)
         {
             for(var j=0;j<x.length;j++)
@@ -129,7 +189,23 @@ class GitCompare extends React.Component
                     x[j]=y;
                 }
             }
-        }
+        }    this.setState({sorter:0})
+    }
+    else
+    {
+        for(var i=0;i<x.length;i++)
+        {
+            for(var j=0;j<x.length;j++)
+            {
+                if(x[i].public_gists<x[j].public_gists)
+                {
+                    var y=x[i];
+                    x[i]=x[j];
+                    x[j]=y;
+                }
+            }
+        }    this.setState({sorter:1})
+    }
         this.state.user=x;
         console.log("sorted");
         console.log(this.state.user)
