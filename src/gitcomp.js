@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Card } from 'antd';
 import useForceUpdate from 'use-force-update';
+import Statistic from './Highcharts'
 import 'antd/dist/antd.css';
 const gridStyle = {
     width: '25%',
@@ -46,9 +47,8 @@ class GitCompare extends React.Component
                 })
 
     }
-    sortFollower(alpha)
+    sortFollower()
     {
-        console.log(alpha);
         var x=this.state.user;
         for(var i=0;i<x.length;i++)
         {
@@ -65,13 +65,14 @@ class GitCompare extends React.Component
         this.state.user=x;
         console.log("sorted");
         console.log(this.state.user)
+        this.state.user.sort();
         this.forceUpdate();
     
 
     }
-    sortFollowing(alpha)
+    sortFollowing()
     {
-        console.log(alpha);
+     
         var x=this.state.user;
         for(var i=0;i<x.length;i++)
         {
@@ -92,9 +93,8 @@ class GitCompare extends React.Component
     
 
     }
-    sortRepo(alpha)
+    sortRepo()
     {
-        console.log(alpha);
         var x=this.state.user;
         for(var i=0;i<x.length;i++)
         {
@@ -115,9 +115,8 @@ class GitCompare extends React.Component
     
 
     }
-    sortGist(alpha)
+    sortGist()
     {
-        console.log(alpha);
         var x=this.state.user;
         for(var i=0;i<x.length;i++)
         {
@@ -154,16 +153,18 @@ class GitCompare extends React.Component
         <button onClick={this.sortGist} style={{marginLeft:"10px",marginRight:"10px"}}>Arrange by Gist</button>        
         </div>
     <h1>{this.state.user.name}</h1>
-    {this.state.user.map((each)=>
-    <div className="site-card-border-less-wrapper" style={{width:400,margin:0,marginLeft:"35%"}}>
-    <Card title={each.name}  style={{ width: 500, backgroundColor:"rgb(120 141 160)",fontSize:"23px",textDecoration:"bold"}}>
-    <Card.Grid style={gridStyle,{fontSize:"20px"}}>Followers: {each.followers}</Card.Grid>
-    <Card.Grid style={gridStyle,{fontSize:"20px"}}>Following:{each.following}</Card.Grid>
-    <Card.Grid style={gridStyle,{fontSize:"20px"}}>Repo : {each.public_repos}</Card.Grid>
-    <Card.Grid style={gridStyle,{fontSize:"20px"}}>Gist : {each.public_gists}</Card.Grid>
+    <span style={{width:"50%",float:"right",color:"white"}}><Statistic data={this.state.user} /></span>
+    <span style={{width:"50%",float:"left"}}>{this.state.user.map((each)=>
+    <div style={{marginLeft:"15px"}}>
+    <div className="site-card-border-less-wrapper" style={{width:400}}>
+    <Card title={each.name}  style={{ width: 600, backgroundColor:"rgb(120 141 160)",fontSize:"23px",textDecoration:"bold"}}>
+    <Card.Grid style={gridStyle,{fontSize:"20px",width:150}}>Followers:{each.followers}</Card.Grid>
+    <Card.Grid style={gridStyle,{fontSize:"20px",width:150}}>Following:{each.following}</Card.Grid>
+    <Card.Grid style={gridStyle,{fontSize:"20px",width:149}}>Repo : {each.public_repos}</Card.Grid>
+    <Card.Grid style={gridStyle,{fontSize:"20px",width:149}}>Gist : {each.public_gists}</Card.Grid>
     </Card>
     <br></br>
-  </div>)}
+  </div></div>)}</span>
     </div>);
     }
 }
